@@ -1,0 +1,43 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        int[] ages = new int[5];
+        int teenCount = 0;
+
+        Console.WriteLine("Enter the ages of 5 customers (10 to 99 only):");
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Customer #{i + 1} age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            while (age < 10 || age > 99)
+            {
+                Console.Write("Invalid age. Please enter between 10 and 99: ");
+                age = int.Parse(Console.ReadLine());
+            }
+
+            ages[i] = age;
+
+            if (age >= 13 && age <= 19)
+            {
+                teenCount++;
+            }
+        }
+
+        Console.WriteLine("\nValid Ages: ");
+        foreach (int age in ages)
+        {
+            Console.WriteLine(age);
+        }
+
+        Console.WriteLine($"Number of teenagers: {teenCount}");
+    }
+}
