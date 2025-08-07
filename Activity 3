@@ -1,0 +1,61 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        float[] scores = new float[5];
+
+        Console.WriteLine("Enter 5 percentage scores:");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Score {i + 1}: ");
+            scores[i] = float.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\nResults:");
+
+        for (int i = 0; i < 5; i++)
+        {
+            string grade = "";
+
+            if (scores[i] >= 90)
+                grade = "A";
+            else if (scores[i] >= 80)
+                grade = "B";
+            else if (scores[i] >= 70)
+                grade = "C";
+            else if (scores[i] >= 60)
+                grade = "D";
+            else
+                grade = "F";
+
+            Console.WriteLine($"Score: {scores[i]} - Grade: {grade}");
+
+            switch (grade)
+            {
+                case "A":
+                    Console.WriteLine("Outstanding! You nailed it! 🎉");
+                    break;
+                case "B":
+                    Console.WriteLine("Great job! You're almost at the top!");
+                    break;
+                case "C":
+                    Console.WriteLine("Not bad! Keep pushing forward!");
+                    break;
+                case "D":
+                    Console.WriteLine("You passed, but there's room to grow. Stay focused!");
+                    break;
+                case "F":
+                    Console.WriteLine("Don’t worry. Mistakes are part of learning. Try again!");
+                    break;
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
