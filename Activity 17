@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        int[] numbers = new int[8];
+
+        Console.WriteLine("Enter 8 whole numbers:");
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("\nResults:");
+        foreach (int num in numbers)
+        {
+            bool isPrime = CheckPrime(num);
+            string evenOdd = (num % 2 == 0) ? "Even" : "Odd";
+            string binary = Convert.ToString(num, 2);
+
+            Console.WriteLine($"{num} - Prime: {(isPrime ? "Yes" : "No")}, {evenOdd}, Binary: {binary}");
+        }
+    }
+
+    static bool CheckPrime(int n)
+    {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.Sqrt(n); i++)
+        {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+}
