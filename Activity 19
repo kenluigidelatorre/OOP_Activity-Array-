@@ -1,0 +1,38 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        string[] categories = { "Food", "Rent", "Utilities", "Transport", "Others" };
+        float[] expenses = new float[5];
+        float total = 0;
+        int highestIndex = 0;
+        float income = 25000;
+
+        for (int i = 0; i < categories.Length; i++)
+        {
+            Console.Write($"Enter budget for {categories[i]}: ");
+            expenses[i] = float.Parse(Console.ReadLine());
+            total += expenses[i];
+            if (expenses[i] > expenses[highestIndex])
+                highestIndex = i;
+        }
+
+        Console.WriteLine($"\nTotal Budget: ₱{total}");
+
+        if (total > income)
+        {
+            Console.WriteLine("You are over budget!");
+            Console.WriteLine($"Consider reducing: {categories[highestIndex]}");
+        }
+        else
+        {
+            Console.WriteLine("You are within the budget.");
+        }
+    }
+}
