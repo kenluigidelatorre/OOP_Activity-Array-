@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        string[] passwords = new string[5];
+
+        Console.WriteLine("Enter 5 passwords:");
+        for (int i = 0; i < passwords.Length; i++)
+        {
+            passwords[i] = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nPassword Strength:");
+        foreach (string pass in passwords)
+        {
+            bool hasUpper = false, hasDigit = false, hasSpecial = false;
+
+            foreach (char c in pass)
+            {
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else if (!char.IsLetterOrDigit(c)) hasSpecial = true;
+            }
+
+            if (pass.Length >= 8 && hasUpper && hasDigit && hasSpecial)
+                Console.WriteLine($"{pass} - Strong");
+            else if (pass.Length >= 8)
+                Console.WriteLine($"{pass} - Weak");
+            else
+                Console.WriteLine($"{pass} - Invalid");
+        }
+    }
+}
