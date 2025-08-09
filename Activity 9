@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        int[] nums = new int[3];
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write("Enter number " + (i + 1) + ": ");
+            nums[i] = int.Parse(Console.ReadLine());
+        }
+
+        foreach (int n in nums)
+        {
+            Console.WriteLine("\nTable for " + n);
+            for (int j = 1; j <= 10; j++)
+            {
+                Console.WriteLine(n + " x " + j + " = " + (n * j));
+            }
+        }
+    }
+}
