@@ -1,2 +1,2 @@
-# OOP_Activity-Array-
+# OOP_Activity (Array)
 C# codes
