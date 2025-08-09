@@ -1,0 +1,31 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        double[] celsius = new double[5];
+        double fahrenheit;
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter temperature {i + 1} in Celsius: ");
+            celsius[i] = double.Parse(Console.ReadLine());
+
+            fahrenheit = celsius[i] * 9 / 5 + 32;
+
+            Console.Write($"Celsius: {celsius[i]} \nFahrenheit: {fahrenheit} \nCategory: ");
+
+            if (celsius[i] < 15)
+                Console.WriteLine("Cold");
+            else if (celsius[i] <= 30)
+                Console.WriteLine("Warm");
+            else
+                Console.WriteLine("Hot");
+        }
+    }
+}
