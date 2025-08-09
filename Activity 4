@@ -1,0 +1,33 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        string[] names = new string[3];
+        Console.WriteLine("Enter 3 names:");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write($"Name {i + 1}: ");
+            names[i] = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nResults:");
+
+        for (int i = 0; i < 3; i++)
+        {
+            char firstChar = names[i][0];
+            char lastChar = names[i][names[i].Length - 1];
+            Console.WriteLine($"Original name: {names[i]}");
+            Console.WriteLine($"First character: {firstChar}");
+            Console.WriteLine($"Last character: {lastChar}");
+            Console.WriteLine($"Uppercase first: {char.ToUpper(firstChar)}");
+            Console.WriteLine($"Uppercase last: {char.ToUpper(lastChar)}");
+            Console.WriteLine();
+        }
+    }
+}
