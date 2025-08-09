@@ -1,0 +1,33 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace HelloWold;
+
+public static class Program
+{
+    public static void Main(String[] args)
+    {
+        string[] emails = new string[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Enter email {i + 1}: ");
+            emails[i] = Console.ReadLine();
+
+            if (!emails[i].Contains("@") ||
+                (!emails[i].EndsWith(".com") && !emails[i].EndsWith(".edu")))
+            {
+                Console.WriteLine("Invalid email!");
+                i--;
+            }
+        }
+
+        Console.WriteLine("\nValid Emails and Usernames:");
+        for (int i = 0; i < 5; i++)
+        {
+            string username = emails[i].Split('@')[0];
+            Console.WriteLine($"{emails[i]} - Username: {username}");
+        }
+    }
+}
